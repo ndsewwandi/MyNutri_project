@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "197286601998",
+    "project_id": "nutrition-app-cd424",
+    "storage_bucket": "nutrition-app-cd424.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:197286601998:android:d754f768a489fbe7aee35f",
+        "android_client_info": {
+          "package_name": "com.example.my_nutri"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU2zuOUGp3cryKnnYuDv5OCTLtqApsNNI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
