@@ -11,20 +11,25 @@ class TrendingBlogsCarousel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 32),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text(
-                "Trending Blogs",
-                style: TextStyle(
-                  color: Color.fromARGB(255, 96, 40, 40),
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1.0,
-                ),
+              Row(
+                children: [
+                  Text(
+                    "Trending Blogs",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 96, 40, 40),
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.0,
+                    ),
+                  ),
+                ],
               ),
+              
             ],
           ),
         ),

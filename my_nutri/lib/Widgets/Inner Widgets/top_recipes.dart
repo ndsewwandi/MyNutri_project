@@ -14,10 +14,9 @@ class TopRecipesCarousalCard extends StatelessWidget {
       child: Stack(
         alignment: Alignment.topCenter,
         children: <Widget>[
-
           Container(
             decoration: BoxDecoration(
-              color:  Colors.transparent,
+              color: Colors.transparent,
               borderRadius: BorderRadius.circular(20),
               boxShadow: const [
                 BoxShadow(
@@ -38,6 +37,23 @@ class TopRecipesCarousalCard extends StatelessWidget {
                       width: 250.0,
                       image: AssetImage(trecipes.image),
                       fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      gradient: LinearGradient(
+                        colors: [
+                          Color.fromARGB(255, 45, 45, 45),
+                          Color.fromARGB(194, 63, 63, 63),
+                           const Color.fromARGB(0, 255, 255, 255),
+                          const Color.fromARGB(0, 255, 255, 255),
+                        ],
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                      ),
                     ),
                   ),
                 ),

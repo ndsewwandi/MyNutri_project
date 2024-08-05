@@ -1,238 +1,183 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:my_nutri/Widgets/profile_bar2.dart';
+import 'package:my_nutri/Widgets/profiletextholder2.dart';
+import 'package:my_nutri/main.dart';
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key});
+  const ProfileScreen({
+    super.key,
+    required this.firstname,
+    required this.lastname,
+    required this.age,
+    required this.weight,
+    required this.bmi,
+  });
+
+  final String firstname;
+  final String lastname;
+  final String age;
+  final int weight;
+  final String bmi;
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  final String _userName = 'User123';
-  var firstName = "Loding...";
-  var userEmail = "Loding...";
-  var lastName = "Loding...";
-  var _isGetUserData = false;
-
-  void getuserData() async {
-    final user = FirebaseAuth.instance.currentUser!;
-    final userData = await FirebaseFirestore.instance
-        .collection("users")
-        .doc(user.uid)
-        .get();
-
-    if (!_isGetUserData) {
-      setState(() {
-        firstName = userData.data()!["first-name"];
-        lastName = userData.data()!["last-name"];
-        userEmail = userData.data()!["email"];
-      });
-      _isGetUserData = true;
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
-    getuserData();
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 60),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(top: 5, bottom: 20),
-            child: Text(
-              "User Profile",
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 103, 203, 106),
-              ),
-            ),
-          ),
-          Stack(
-            children: [
-              Container(
-                margin: const EdgeInsets.only(top: 100),
-                padding: const EdgeInsets.all(16),
-                decoration: const BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      offset: Offset(0, 1),
-                      blurRadius: 10,
-                      color: Color.fromARGB(100, 0, 0, 0),
-                      spreadRadius: -20,
-                    ),
-                  ],
+    var screenSize = MediaQuery.of(context).size;
+    return Container(
+      width: double.infinity,
+      height: screenSize.height,
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/backdrop_3.jpg"),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: SingleChildScrollView(
+        child: LayoutBuilder(builder: (context, constraints) {
+          return Padding(
+            padding: const EdgeInsets.only(top: 55),
+            child: Column(children: [
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: screenSize.height * 0.00,
+                  horizontal: screenSize.width * 0.04,
                 ),
-                child: Card(
-                  color: const Color.fromARGB(255, 103, 203, 106),
-                  child: Container(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
+                child: Column(
+                  children: [
+                    ProfileBar2(
+                      appName: "MyNutri",
+                      acctype: "Lite Account",
+                      username: "${widget.firstname} ${widget.lastname}",
+                    ),
+                    SizedBox(height: screenSize.height * 0.02),
+                    Column(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 100),
-                          child: Container(
-                            width: double.infinity,
-                            padding: const EdgeInsets.only(bottom: 12),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              color: const Color.fromARGB(255, 25, 110, 27),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "User Profile",
+                              style: TextStyle(
+                                fontSize: 28,
+                                fontWeight: FontWeight.w700,
+                                color: const Color.fromARGB(255, 18, 73, 86),
+                                letterSpacing: 1,
+                              ),
                             ),
-                            child: Column(
-                              children: [
-                                const Padding(
-                                  padding: EdgeInsets.only(bottom: 8, top: 5),
-                                  child: Text(
-                                    "First Name:",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                                Text(
-                                  firstName,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                          ],
                         ),
-                        const SizedBox(
-                          height: 8,
-                        ),
+                        SizedBox(height: screenSize.height * 0.002),
                         Container(
-                          width: double.infinity,
-                          padding: const EdgeInsets.only(bottom: 12),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            color: const Color.fromARGB(255, 25, 110, 27),
-                          ),
-                          child: Column(
-                            children: [
-                              const Padding(
-                                padding: EdgeInsets.only(bottom: 8, top: 5),
-                                child: Text(
-                                  "Last Name:",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                lastName,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        Container(
-                          width: double.infinity,
-                          padding: const EdgeInsets.only(bottom: 12),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            color: const Color.fromARGB(255, 25, 110, 27),
-                          ),
-                          child: Column(
-                            children: [
-                              const Padding(
-                                padding: EdgeInsets.only(bottom: 8, top: 5),
-                                child: Text(
-                                  "Email:",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                userEmail,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 16,
+                          height: 2.5,
+                          width: screenSize.width * 0.95,
+                          color: const Color.fromARGB(255, 18, 73, 86),
                         ),
                       ],
                     ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 50,
-                right: 50,
-                child: Container(
-                  decoration: const BoxDecoration(
-                    color: Colors.amber,
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                        offset: Offset(0, -5),
-                        blurRadius: 10,
-                        color: Color.fromARGB(80, 0, 0, 0),
+                    SizedBox(height: screenSize.height * 0.03),
+                    Container(
+                      // height: screenSize.height * 0.45,
+                      width: screenSize.width * 0.92,
+                      decoration: const BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color.fromARGB(255, 107, 107, 107),
+                            offset: Offset(0, 3),
+                            blurRadius: 10,
+                          ),
+                        ],
+                        color: const Color.fromARGB(255, 51, 154, 163),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(15),
+                        ),
                       ),
-                    ],
-                  ),
-                  child: const CircleAvatar(
-                    backgroundImage: AssetImage("assets/02.png"),
-                    backgroundColor: Color.fromARGB(255, 217, 217, 217),
-                    radius: 110,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32),
-            child: ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(
-                  const Color.fromARGB(195, 218, 37, 37),
-                ),
-              ),
-              onPressed: () {
-                FirebaseAuth.instance.signOut();
-              },
-              child: Container(
-                width: double.infinity,
-                child: Center(
-                  child: const Text(
-                    'Logout',
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: "Outfit-Regular",
-                      color: Color.fromARGB(255, 255, 255, 255),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 20, horizontal: 20),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ProfileTextHolder2(
+                                feildName: "First Name",
+                                username: widget.firstname),
+                            SizedBox(height: screenSize.height * 0.015),
+                            ProfileTextHolder2(
+                                feildName: "Last Name",
+                                username: widget.lastname),
+                            SizedBox(height: screenSize.height * 0.015),
+                            ProfileTextHolder2(
+                                feildName: "Age", username: widget.age),
+                            SizedBox(height: screenSize.height * 0.015),
+                            ProfileTextHolder2(
+                                feildName: "Weight", username: "${widget.weight}"),
+                            SizedBox(height: screenSize.height * 0.015),
+                            ProfileTextHolder2(
+                                feildName: "Current BMI value",
+                                username: widget.bmi),
+                          ],
+                        ),
+                      ),
                     ),
-                  ),
+                    SizedBox(height: screenSize.height * 0.03),
+                    SizedBox(
+                      height: screenSize.height * 0.055,
+                      width: screenSize.width * 0.4,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          elevation: 8,
+                          padding: EdgeInsets.all(screenSize.width * 0.025),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                          backgroundColor:
+                              const Color.fromARGB(255, 250, 94, 94),
+                        ),
+                        onPressed: () {
+                          FirebaseAuth.instance.signOut();
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext context) {
+                                return MyApp();
+                              },
+                            ),
+                            (r) {
+                              return false;
+                            },
+                          );
+                        },
+                        child: Center(
+                          child: Text(
+                            "LOG OUT",
+                            style: TextStyle(
+                              letterSpacing: 1.7,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 22,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: screenSize.height * 0.01),
+                    Image.asset(
+                      "assets/logo.png",
+                      width: screenSize.width * 0.5,
+                    ),
+                    SizedBox(height: screenSize.height * 0.02),
+                  ],
                 ),
               ),
-            ),
-          ),
-        ],
+            ]),
+          );
+        }),
       ),
     );
   }

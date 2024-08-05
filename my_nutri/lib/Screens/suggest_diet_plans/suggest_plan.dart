@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:my_nutri/Data/suggest_diet_plans.dart';
 import 'package:my_nutri/Models/suggest_diet_plans.dart';
+import 'package:my_nutri/Screens/all_recipes.dart';
 import 'package:my_nutri/Screens/suggest_diet_plans/suggest_diet_plans_all.dart';
 import 'package:my_nutri/Screens/suggest_diet_plans/suggest_diet_plans_details.dart';
 
@@ -19,19 +20,15 @@ class _SuggestDietPlanState extends State<SuggestDietPlan> {
   final List<SuggestDietPlans> shuffledPlans = getShuffledList();
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Image.asset(
-                "assets/07.png",
-                fit: BoxFit.cover,
-                width: double.infinity,
-              ),
-            ),
+          Image.asset(
+            "assets/backdrop_3.jpg",
+            fit: BoxFit.cover,
+            width: double.infinity,
+            height: screenSize.height,
           ),
           SingleChildScrollView(
             child: Column(
@@ -154,26 +151,28 @@ class _SuggestDietPlanState extends State<SuggestDietPlan> {
                   },
                 ),
                 const SizedBox(
-                  height: 80,
+                  height: 50,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextButton(
+                      
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const SuggestDietPlanAll(),
+                            builder: (context) => const AllRecipesScreen(),
                           ),
                         );
                       },
                       child: const Text(
                         "See all Diet Plans",
                         style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 63, 170, 72)),
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(195, 18, 114, 167),
+                        ),
                       ),
                     )
                   ],

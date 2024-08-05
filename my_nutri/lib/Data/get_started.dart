@@ -6,6 +6,6 @@ List<GetStarted> contents = [
     image1: "assets/logo.png",
     image2: "assets/01.jpg",
     description:
-        "Get personalized nutrition guidance on-the-go with our intuitive app.Track, plan,and optimize your meals effortlessly for a healthier you!",
+        "Get personalized nutrition guidance on the go with our intuitive app.\nTrack, plan,and optimize your meals!",
   ),
 ];

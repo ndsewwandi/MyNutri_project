@@ -3,6 +3,7 @@ import 'package:my_nutri/Models/top_recipes.dart';
 List<TopRecipes> toprecipe = [
   TopRecipes(
     title: "One-Pot Garlicky\nShrimp & Spinach",
+    type: "non-veg",
     image: "assets/r1.png",
     description:
         "Shrimp, spinach and garlic brown and cook quickly for a simple one-pot weeknight dinner. A fast pan sauce gets life from zesty lemon juice, warm crushed red pepper and herby parsley.",
@@ -13,6 +14,7 @@ List<TopRecipes> toprecipe = [
   ),
   TopRecipes(
     title: "Coconut Chickpea Curry",
+    type: "veg",
     image: "assets/r2.png",
     description:
         "To make this 20-minute vegan curry even faster, buy precut veggies from the salad bar at the grocery store. To make it a full, satisfying dinner, serve over cooked brown rice.",
@@ -23,6 +25,7 @@ List<TopRecipes> toprecipe = [
   ),
   TopRecipes(
     title: "Garlic Roasted Salmon\n& Brussels Sprouts",
+    type: "non-veg",
     image: "assets/r3.png",
     description:
         "Roasting salmon on top of Brussels sprouts and garlic, flavored with wine and fresh oregano, is simple enough for a weeknight meal yet sophisticated enough to serve to company. Serve with whole-wheat couscous.",
@@ -33,6 +36,7 @@ List<TopRecipes> toprecipe = [
   ),
   TopRecipes(
     title: "One-Pot Garlicky\nShrimp & Broccoli",
+    type: "non-veg",
     image: "assets/r4.png",
     description:
         "Shrimp and broccoli cook quickly in this easy, one-pot recipe, making it perfect for busy weeknights. Serve this healthy shrimp recipe over whole grains or rice.",
@@ -43,6 +47,7 @@ List<TopRecipes> toprecipe = [
   ),
   TopRecipes(
     title: "Cabbage &\nKielbasa Skillet",
+    type: "veg",
     image: "assets/r5.png",
     description:
         "Smoky sausage, tender cabbage and sweet apples, along with mustard and cider vinegar, create a perfect balance of flavor in this hearty skillet dinner.",
@@ -50,5 +55,49 @@ List<TopRecipes> toprecipe = [
         "1 (13-oz.) pkg. smoked turkey kielbasa/1 tablespoon olive oil/1 cup chopped yellow onion/¼ teaspoon caraway seeds/1 tablespoon unsalted butter/8 cups chopped green cabbage/½ cup sliced red apple/½ teaspoon black pepper/¼ teaspoon kosher salt/1 tablespoon finely chopped garlic/1 tablespoon whole-grain Dijon mustard/1 tablespoon apple cider vinegar/2 tablespoons chopped fresh flat-leaf parsley/¼ teaspoon paprika",
     steps:
         "Halve kielbasa lengthwise, and slice into 1/3-inch-thick slices. Heat oil in a large skillet over medium-high. Add kielbasa slices, onion and caraway seeds; cook, stirring occasionally, until kielbasa is browned and onion is tender, about 8 minutes.Add butter to skillet; cook over medium-high, stirring constantly, until melted, about 20 seconds. Add cabbage, apple, pepper and salt; cover and cook, stirring occasionally, until cabbage and apple are tender and browned, about 10 minutes. Uncover. Stir in garlic; cook, stirring constantly, until fragrant, about 1 minute. Remove from heat. Stir in mustard and vinegar. Sprinkle with parsley and paprika.",
+  ),
+  TopRecipes(
+    title: "Caprese Salad",
+    type: "veg",
+    image: "assets/n1.jpg",
+    description:
+        "A classic Italian salad that is fresh, simple, and delicious.",
+    ing:
+        "2 large tomatoes, sliced,1 ball of fresh mozzarella, sliced, Fresh basil leaves, 2 tablespoons extra-virgin olive oil, 1 tablespoon balsamic vinegar, Salt and pepper, to taste",
+    steps:
+        "Arrange tomato and mozzarella slices on a plate, alternating between them. Tuck basil leaves between the tomato and mozzarella slices. Drizzle with olive oil and balsamic vinegar. Season with salt and pepper to taste.",
+  ),
+  TopRecipes(
+    title: "Chickpea Salad",
+    type: "veg",
+    image: "assets/n2.jpg",
+    description:
+        "A quick and protein-packed salad that's perfect for lunch or as a side dish.",
+    ing:
+        "1 can chickpeas, drained and rinsed, 1 cucumber, diced, 1 red bell pepper, diced, 1/4 red onion, finely chopped, 2 tablespoons olive oil, 1 tablespoon lemon juice, 1 teaspoon dried oregano, Salt and pepper, to taste",
+    steps:
+        "In a large bowl, combine chickpeas, cucumber, red bell pepper, and red onion. In a small bowl, whisk together olive oil, lemon juice, oregano, salt, and pepper. Pour the dressing over the salad and toss to combine.",
+  ),
+  TopRecipes(
+    title: "Stuffed Mini Bell Peppers",
+    type: "veg",
+    image: "assets/n3.jpeg",
+    description:
+        "Colorful and flavorful, these stuffed mini bell peppers are a great appetizer or snack.",
+    ing:
+        "12 mini bell peppers, 1 cup cooked quinoa, 1/2 cup feta cheese, crumbled, 1/4 cup chopped fresh parsley, 1 tablespoon olive oil, Salt and pepper, to taste",
+    steps:
+        "Preheat oven to 375°F (190°C). Cut the tops off the mini bell peppers and remove the seeds. In a bowl, mix cooked quinoa, feta cheese, parsley, olive oil, salt, and pepper. Stuff each bell pepper with the quinoa mixture. Place stuffed peppers on a baking sheet and bake for 15-20 minutes, until peppers are tender.",
+  ),
+  TopRecipes(
+    title: "Honey Garlic Chicken Bites",
+    type: "non-veg",
+    image: "assets/n4.jpg",
+    description:
+        "Sweet and savory chicken bites that are quick and easy to prepare, perfect for a snack or a light meal.",
+    ing:
+        "1 pound boneless, skinless chicken breast, cut into bite-sized pieces, 2 tablespoons olive oil, 3 cloves garlic, minced, 1/4 cup honey, 2 tablespoons soy sauce, Salt and pepper, to taste, Green onions, sliced (for garnish)",
+    steps:
+        "Heat olive oil in a large skillet over medium-high heat. Add chicken pieces, season with salt and pepper, and cook until golden brown and cooked through, about 5-7 minutes. Add garlic to the skillet and cook for another 1-2 minutes. In a small bowl, mix honey and soy sauce, then pour over the chicken. Cook for another 2-3 minutes, until the sauce thickens slightly. Garnish with sliced green onions before serving.",
   ),
 ];

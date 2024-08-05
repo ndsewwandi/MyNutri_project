@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:my_nutri/Models/suggest_diet_plans.dart';
 
-class SuggestDietPlansDetails extends StatelessWidget {
-  const SuggestDietPlansDetails({
+class ViewRecipeScreen extends StatelessWidget {
+  const ViewRecipeScreen({
     super.key,
-    required this.suggestdp,
+    required this.imgPath,
+    required this.description,
+    required this.ingredents,
+    required this.steps,
+    required this.title,
   });
-  final SuggestDietPlans suggestdp;
+
+  final String imgPath;
+  final String title;
+  final String description;
+  final String ingredents;
+  final String steps;
 
   @override
   Widget build(BuildContext context) {
-    print("Done...................");
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -24,11 +31,11 @@ class SuggestDietPlansDetails extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Hero(
-                    tag: suggestdp.image,
+                    tag: imgPath,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: Image(
-                        image: AssetImage(suggestdp.image),
+                        image: AssetImage(imgPath),
                         fit: BoxFit.cover,
                         width: double.maxFinite,
                       ),
@@ -56,7 +63,7 @@ class SuggestDietPlansDetails extends StatelessWidget {
             Center(
               child: Text(
                 textAlign: TextAlign.center,
-                suggestdp.title,
+                title,
                 style: const TextStyle(
                   letterSpacing: 1.2,
                   fontSize: 25,
@@ -68,7 +75,7 @@ class SuggestDietPlansDetails extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 10, top: 2),
               child: Text(
-                suggestdp.description,
+                description,
                 style: const TextStyle(
                     letterSpacing: 1.2, fontSize: 15.5, color: Colors.black),
                 textAlign: TextAlign.center,
@@ -93,7 +100,7 @@ class SuggestDietPlansDetails extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 20, top: 10, right: 20),
               child: Text(
-                suggestdp.ing,
+                ingredents,
                 style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
@@ -120,7 +127,7 @@ class SuggestDietPlansDetails extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 20, top: 10, right: 20),
               child: Text(
-                suggestdp.steps,
+                steps,
                 style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w400,

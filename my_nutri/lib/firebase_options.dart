@@ -50,11 +50,11 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDU2zuOUGp3cryKnnYuDv5OCTLtqApsNNI',
-    appId: '1:197286601998:android:d754f768a489fbe7aee35f',
-    messagingSenderId: '197286601998',
-    projectId: 'nutrition-app-cd424',
-    storageBucket: 'nutrition-app-cd424.appspot.com',
+    apiKey: 'AIzaSyDss1ONRTZtFT3C7XqpBqL6zlwb_ash2QE',
+    appId: '1:940222702259:android:86c0ec4c551604d5a306c6',
+    messagingSenderId: '940222702259',
+    projectId: 'mynutri-nutrition',
+    storageBucket: 'mynutri-nutrition.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(

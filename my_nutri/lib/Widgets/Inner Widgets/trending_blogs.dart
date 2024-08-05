@@ -14,7 +14,6 @@ class TrendingBlogsCarousalCard extends StatelessWidget {
       child: Stack(
         alignment: Alignment.topCenter,
         children: <Widget>[
-          
           Container(
             decoration: BoxDecoration(
               color: Colors.white,
@@ -30,7 +29,7 @@ class TrendingBlogsCarousalCard extends StatelessWidget {
             child: Stack(
               children: <Widget>[
                 Hero(
-                  tag:trblog.image,
+                  tag: trblog.image,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20.0),
                     child: Image(
@@ -42,10 +41,27 @@ class TrendingBlogsCarousalCard extends StatelessWidget {
                   ),
                 ),
                 Positioned(
+                  child: Container(
+                    height: 180,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      gradient: LinearGradient(
+                        colors: [
+                          Color.fromARGB(255, 45, 45, 45),
+                          Color.fromARGB(194, 96, 96, 96),
+                          Color.fromARGB(0, 255, 255, 255),
+                          Color.fromARGB(0, 255, 255, 255),
+                        ],
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
                   left: 10.0,
                   bottom: 10.0,
                   child: Column(
-                    
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Padding(

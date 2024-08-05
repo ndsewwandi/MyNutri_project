@@ -5,11 +5,13 @@ class TopRecipes {
   String description;
   String ing;
   String steps;
+  String type;
   TopRecipes({
     required this.image,
     required this.title,
     required this.description,
     required this.ing,
     required this.steps,
+    required this.type,
   });
 }
